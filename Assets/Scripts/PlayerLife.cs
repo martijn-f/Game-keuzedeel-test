@@ -1,38 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
 public class PlayerLife : MonoBehaviour
 {
-    private Rigidbody2D rb;
-    private Animator anim;
+    public float levelTime;
+    private bool isCounting = true;
+    public static int health = 3;
+    public Image totalhealthBar;
+    public Image currenthealthBar;
+    public Text TimerText;
 
-    [SerializeField] private AudioSource deathSoundEffect;
+
     private void Start()
     {
-        rb = GetComponent<Rigidbody2D>();
-        anim = GetComponent<Animator>();
+        levelTime = 120;
+        Debug.Log(health);
+        currenthealthBar.fillAmount = (float)health / 10;
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void Update()
     {
-        if (collision.gameObject.CompareTag("trap"))
+        if (isCounting)
         {
-            Die();
+            if (levelTime > 0)
+            {
+                levelTime -= Time.deltaTime;
+                TimerText.text = Mathf.RoundToInt(levelTime).ToString();
+            }
+
+            else if (levelTime <= 0)
+            {
+                levelTime = 0;
+                TimeIsOver();
+                isCounting = false;
+            }
+        }
+
+        if (health <= 0)
+        {
+            health = 3;
+            SceneManager.LoadScene(0);
+        }
+
+    }
+
+    public void TakeDamage()
+    {
+        health--;
+        ReloadLevel();
+
+    }
+
+    public void AddHealth()
+    {
+        if (health < 3)
+        {
+            health++;
+            currenthealthBar.fillAmount = (float)health / 10;
         }
     }
 
-    private void Die()
+    private void TimeIsOver()
     {
-        deathSoundEffect.Play();
-        rb.bodyType = RigidbodyType2D.Static;
-        anim.SetTrigger("death");
+        health--;
+        ReloadLevel();
     }
 
-    private void RestartLevel()
+    private void ReloadLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        Scene scene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(scene.buildIndex);
     }
-
 }

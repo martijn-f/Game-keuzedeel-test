@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5756109999714510113}
-  - component: {fileID: 7434313051427788833}
   - component: {fileID: 5756109999714510111}
   - component: {fileID: 5756109999714510112}
   - component: {fileID: 5756109999714510110}
@@ -17,7 +16,6 @@ GameObject:
   - component: {fileID: 5756109999714510108}
   - component: {fileID: 5756109999714510106}
   - component: {fileID: 3844707373049451206}
-  - component: {fileID: 5756109999714510105}
   - component: {fileID: 5756109999714510104}
   - component: {fileID: 5756109999714510107}
   - component: {fileID: 5756109999714510103}
@@ -42,20 +40,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7434313051427788833
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5756109999714510114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6642fd71b60b6f349a7ee4e9715e8e12, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healthValue: 0
-  collectionSoundEffect: {fileID: 0}
 --- !u!212 &5756109999714510111
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -219,19 +203,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   collectionSoundEffect: {fileID: 5756109999714510104}
---- !u!114 &5756109999714510105
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5756109999714510114}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ee308fee4479f7c46ae54994b2d66f59, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  deathSoundEffect: {fileID: 5756109999714510103}
 --- !u!82 &5756109999714510104
 AudioSource:
   m_ObjectHideFlags: 0

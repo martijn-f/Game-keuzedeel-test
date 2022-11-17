@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Finish : MonoBehaviour
 {
-    
+
 
 
     private AudioSource finishSound;
@@ -36,8 +36,8 @@ public class Finish : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
-        
-        
+
+
     }
 
 }
